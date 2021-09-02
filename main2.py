@@ -76,6 +76,7 @@ class MainWindow(QMainWindow):
 
         self.rocket_state = QtWidgets.QLabel(text="state")
         self.speed_rocket = QtWidgets.QLabel(text="speed")
+        self.abs_vert_acc = QtWidgets.QLabel(text="acc")
         self.gps_lat_rocket = QtWidgets.QLabel(text="gps_lat")
         self.gps_lon_rocket = QtWidgets.QLabel(text="gps_lon")
         self.pressure_rocket = QtWidgets.QLabel(text="pressure")
@@ -110,6 +111,7 @@ class MainWindow(QMainWindow):
 
         vlay.addWidget(self.rocket_title)
         vlay.addWidget(self.rocket_state)
+        vlay.addWidget(self.abs_vert_acc)
         vlay.addWidget(self.speed_rocket)
         vlay.addWidget(self.gps_lat_rocket)
         vlay.addWidget(self.gps_lon_rocket)
@@ -258,7 +260,7 @@ class MainWindow(QMainWindow):
             self.gps_lat_rocket.setText("GPS Enlem: " + str(self.parsed["gps_latitude"]))
             self.gps_lon_rocket.setText("GPS Boylam: " + str(self.parsed["gps_longtitude"]))
 
-            # self.acc_x.setText("İvme X: " + str(self.parsed["acc_x"]))
+            self.abs_vert_acc.setText("Dikey İvme(dof): " + str(self.parsed["abs_vert_acc"]) + "m/s^2")
             # self.acc_y.setText("İvme Y: " + str(self.parsed["acc_y"]))
             # self.acc_z.setText("İvme Z: " + str(self.parsed["acc_z"]))
 
@@ -281,9 +283,9 @@ class MainWindow(QMainWindow):
             self.gps_lat_payload.setText("GPS Enlem: " + str(self.parsed["gps_latitude"]))
             self.gps_lon_payload.setText("GPS Boylam: " + str(self.parsed["gps_longtitude"]))
 
-            self.acc_x_payload.setText("İvme X: " + str(self.parsed["acc_x"]))
-            self.acc_y_payload.setText("İvme Y: " + str(self.parsed["acc_y"]))
-            self.acc_z_payload.setText("İvme Z: " + str(self.parsed["acc_z"]))
+            self.acc_x_payload.setText("İvme X: " + str(self.parsed["acc_x"]) + "m/s^2")
+            self.acc_y_payload.setText("İvme Y: " + str(self.parsed["acc_y"]) + "m/s^2")
+            self.acc_z_payload.setText("İvme Z: " + str(self.parsed["acc_z"]) + "m/s^2")
 
             self.pressure_payload.setText("Basınç: " + str(self.parsed["pressure"]))
             self.temp_payload.setText("Sıcaklık: " + str(self.parsed["temp"]))
